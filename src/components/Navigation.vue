@@ -2,7 +2,7 @@
   <nav>
     <div class="navigation">
       <div class="brandname">
-        <span title="Main menu">
+        <span title="Main menu" @click="handleClick">
           <i class="fas fa-bars bars" />
         </span>
         <span class="avatar">
@@ -34,7 +34,8 @@ export default {
   name: "Navigation",
   data() {
     return {
-      searchItem: ""
+      searchItem: "",
+      active: true
     };
   },
   watch: {
@@ -44,17 +45,32 @@ export default {
         this.$emit("searchItem", searched);
       }, 3000);
     }
+  },
+  methods: {
+    handleClick() {
+      this.active = !this.active;
+      this.$emit("nav-toggled", this.active);
+    },
+    toggleSideBar() {
+      this.showNav = !this.showNav;
+      this.$emit("showNav", this.showNav);
+    }
   }
 };
 </script>
 
 <style scoped>
 nav {
-  height: 7vh;
-  padding: 0 8px;
-  margin-bottom: 8px;
+  height: 9vh;
+  padding: 5px 8px;
+  /* margin-bottom: 2vh; */
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+  background: white;
+  width: 100%;
+  position: sticky;
+  z-index: 1;
+  top: 0;
 }
 .navigation {
   display: grid;

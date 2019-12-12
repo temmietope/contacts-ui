@@ -20,5 +20,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+   flex-grow: 2
 }
 </style>

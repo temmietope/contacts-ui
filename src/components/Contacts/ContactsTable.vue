@@ -10,18 +10,23 @@
         </th>
       </tr>
     </thead>
+    <div class="desc">
+      <span>CONTACTS ({{contacts.length}})</span>
+    </div>
+
     <tbody>
-      <tr v-for="contact in contacts" :key="contact.id">
+      <tr v-for="contact in contacts" :key="contact.id" class="row-body">
         <td class="name">
           <div class="_name">
+            <i class="fas fa-grip-vertical sideicon" />
             <div class="circle" :style="{backgroundColor: getRandomColor}">
               <span class="initials">{{getInitials(contact.name)}}</span>
             </div>
             {{contact.name.title}} {{contact.name.first}} {{contact.name.last}}
           </div>
         </td>
-        <td class="email">gilfoyle@piedpiper.com</td>
-        <td class="phone">08000000000</td>
+        <td class="email">{{contact.email}}</td>
+        <td class="phone">{{contact.phone}}</td>
         <td class="more">
           <div class="_more">
             <i class="far fa-star" />
@@ -90,14 +95,22 @@ export default {
 .contacts-wrapper table {
   width: 98%;
   table-layout: fixed;
+  position: relative;
 }
 .contacts-wrapper table .name {
   width: 40%;
+  box-sizing: border-box;
 }
 .contacts-wrapper table ._name {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  box-sizing: border-box;
+}
+.contacts-wrapper table ._name .sideicon {
+  padding-right: 5px;
+  display: none;
+  color: #5f6368;
 }
 .contacts-wrapper table .email {
   width: 30%;
@@ -121,14 +134,19 @@ td {
 }
 .contacts-wrapper thead {
   color: #5f6368;
+  background: white;
+  width: 100%;
+  /* z-index: 1;
+  position: fixed;
+  top: 7vh; */
 }
 .contacts-wrapper thead .more {
   text-align: right;
 }
 .contacts-wrapper tbody .more ._more {
-  display: flex;
   justify-content: flex-end;
   width: 100%;
+  display: none;
 }
 .contacts-wrapper tbody .more ._more i {
   margin-left: 30px;
@@ -136,5 +154,31 @@ td {
 }
 .contacts-wrapper table tr {
   height: 56px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.contacts-wrapper table tr.row-body:hover {
+  background: #f1f3f4;
+}
+.contacts-wrapper table tr.row-body:hover ._more {
+  display: flex;
+}
+.contacts-wrapper table tr.row-body:hover .sideicon {
+  display: block;
+}
+.desc {
+  font-size: 10px;
+  width: 100%;
+  height: 4vh;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #5f6368;
+  font-weight: bold;
+  padding-left: 10px;
 }
 </style>

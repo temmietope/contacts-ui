@@ -1,101 +1,141 @@
 [
   {
     "id": 1,
+    "email": "nicolinechristensen@gmail.com",
+    "phone": "080878739634",
     "name": { "title": "Miss", "first": "Nicoline", "last": "Christensen" },
     "avatar": "https://randomuser.me/api/portraits/med/women/12.jpg"
   },
   {
     "id": 2,
+    "email": "iiristikkanen@gmail.com",
+    "phone": "080101982351",
     "name": { "title": "Mrs", "first": "Iiris", "last": "Tikkanen" },
     "avatar": "https://randomuser.me/api/portraits/med/women/94.jpg"
   },
   {
     "id": 3,
+    "email": "ronrobertson@gmail.com",
+    "phone": "080360333124",
     "name": { "title": "Mr", "first": "Ron", "last": "Robertson" },
     "avatar": "https://randomuser.me/api/portraits/med/men/20.jpg"
   },
   {
     "id": 4,
+    "email": "charliekumar@gmail.com",
+    "phone": "080603487300",
     "name": { "title": "Mr", "first": "Charlie", "last": "Kumar" },
     "avatar": "https://randomuser.me/api/portraits/med/men/52.jpg"
   },
   {
     "id": 5,
+    "email": "ottoløvik@gmail.com",
+    "phone": "080856501503",
     "name": { "title": "Mr", "first": "Otto", "last": "Løvik" },
     "avatar": "https://randomuser.me/api/portraits/med/men/53.jpg"
   },
   {
     "id": 6,
+    "email": "pascalgarcia@gmail.com",
+    "phone": "080427404382",
     "name": { "title": "Monsieur", "first": "Pascal", "last": "Garcia" },
     "avatar": "https://randomuser.me/api/portraits/med/men/54.jpg"
   },
   {
     "id": 7,
+    "email": "eelisketola@gmail.com",
+    "phone": "080787750823",
     "name": { "title": "Mr", "first": "Eelis", "last": "Ketola" },
     "avatar": "https://randomuser.me/api/portraits/med/men/62.jpg"
   },
   {
     "id": 8,
+    "email": "judydavidson@gmail.com",
+    "phone": "080599175628",
     "name": { "title": "Mrs", "first": "Judy", "last": "Davidson" },
     "avatar": "https://randomuser.me/api/portraits/med/women/52.jpg"
   },
   {
     "id": 9,
+    "email": "camilarice@gmail.com",
+    "phone": "080502355731",
     "name": { "title": "Ms", "first": "Camila", "last": "Rice" },
     "avatar": "https://randomuser.me/api/portraits/med/women/18.jpg"
   },
   {
     "id": 10,
+    "email": "سینازارعی@gmail.com",
+    "phone": "080979241099",
     "name": { "title": "Mr", "first": "سینا", "last": "زارعی" },
     "avatar": "https://randomuser.me/api/portraits/med/men/45.jpg"
   },
   {
     "id": 11,
+    "email": "korneliamahler@gmail.com",
+    "phone": "080680944390",
     "name": { "title": "Miss", "first": "Kornelia", "last": "Mahler" },
     "avatar": "https://randomuser.me/api/portraits/med/women/19.jpg"
   },
   {
     "id": 12,
+    "email": "timmgoller@gmail.com",
+    "phone": "080401038376",
     "name": { "title": "Mr", "first": "Timm", "last": "Goller" },
     "avatar": "https://randomuser.me/api/portraits/med/men/71.jpg"
   },
   {
     "id": 13,
+    "email": "nixonjackson@gmail.com",
+    "phone": "080624226100",
     "name": { "title": "Mr", "first": "Nixon", "last": "Jackson" },
     "avatar": "https://randomuser.me/api/portraits/med/men/41.jpg"
   },
   {
     "id": 14,
+    "email": "johanandersen@gmail.com",
+    "phone": "080106482872",
     "name": { "title": "Mr", "first": "Johan", "last": "Andersen" },
     "avatar": "https://randomuser.me/api/portraits/med/men/59.jpg"
   },
   {
     "id": 15,
+    "email": "estebannieto@gmail.com",
+    "phone": "080637272005",
     "name": { "title": "Mr", "first": "Esteban", "last": "Nieto" },
     "avatar": "https://randomuser.me/api/portraits/med/men/22.jpg"
   },
   {
     "id": 16,
+    "email": "میلادنكو نظر@gmail.com",
+    "phone": "080546461512",
     "name": { "title": "Mr", "first": "میلاد", "last": "نكو نظر" },
     "avatar": "https://randomuser.me/api/portraits/med/men/23.jpg"
   },
   {
     "id": 17,
+    "email": "carmenmoore@gmail.com",
+    "phone": "080963007303",
     "name": { "title": "Ms", "first": "Carmen", "last": "Moore" },
     "avatar": "https://randomuser.me/api/portraits/med/women/23.jpg"
   },
   {
     "id": 18,
+    "email": "lumihakola@gmail.com",
+    "phone": "080225559317",
     "name": { "title": "Mrs", "first": "Lumi", "last": "Hakola" },
     "avatar": "https://randomuser.me/api/portraits/med/women/77.jpg"
   },
   {
     "id": 19,
+    "email": "leonardkleiveland@gmail.com",
+    "phone": "080303040640",
     "name": { "title": "Mr", "first": "Leonard", "last": "Kleiveland" },
     "avatar": "https://randomuser.me/api/portraits/med/men/26.jpg"
   },
   {
     "id": 20,
+    "email": "aninariviere@gmail.com",
+    "phone": "080645570165",
     "name": { "title": "Madame", "first": "Anina", "last": "Riviere" },
     "avatar": "https://randomuser.me/api/portraits/med/women/48.jpg"
   }
