@@ -23,7 +23,11 @@
         <td class="email">gilfoyle@piedpiper.com</td>
         <td class="phone">08000000000</td>
         <td class="more">
-          <i class="fas fa-ellipsis-v" />
+          <div class="_more">
+            <i class="far fa-star" />
+            <i class="fas fa-pencil-alt" />
+            <i class="fas fa-ellipsis-v" />
+          </div>
         </td>
       </tr>
     </tbody>
@@ -73,7 +77,6 @@ export default {
   margin-right: 20px;
   font-size: 15px;
   font-weight: bold;
-
 }
 
 .initials {
@@ -116,8 +119,20 @@ th {
 td {
   text-align: left;
 }
+.contacts-wrapper thead {
+  color: #5f6368;
+}
 .contacts-wrapper thead .more {
   text-align: right;
+}
+.contacts-wrapper tbody .more ._more {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.contacts-wrapper tbody .more ._more i {
+  margin-left: 30px;
+  color: #5f6368;
 }
 .contacts-wrapper table tr {
   height: 56px;
