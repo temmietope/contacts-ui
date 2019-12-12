@@ -2,7 +2,7 @@
   <nav>
     <div class="navigation">
       <div class="brandname">
-        <span>
+        <span title="Main menu">
           <i class="fas fa-bars bars" />
         </span>
         <span class="avatar">
@@ -11,17 +11,17 @@
         <h2>Contacts</h2>
       </div>
       <div class="input-tag">
-        <i class="fas fa-search search"></i>
+        <i class="fas fa-search search" title="Search"></i>
         <input type="text" v-model="searchItem" placeholder="Search" />
-        <i class="fas fa-times cancel"></i>
+        <i class="fas fa-times cancel" title="Clear search"></i>
       </div>
       <div class="info">
         <span class="settings">
-          <i class="far fa-question-circle"></i>
-          <i class="fas fa-cog"></i>
+          <i class="far fa-question-circle" title="Help menu"></i>
+          <i class="fas fa-cog" title="Settings menu"></i>
         </span>
         <span class="admin">
-          <i class="fas fa-grip-horizontal"></i>
+          <i class="fas fa-grip-horizontal" title="Google apps"></i>
           <p>T</p>
         </span>
       </div>
@@ -48,11 +48,10 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 nav {
   height: 7vh;
-  padding: 8px;
+  padding: 0 8px;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
 }
@@ -149,6 +148,9 @@ nav {
 .cancel i {
   margin: 0px 5px;
 }
+.navigation .input-tag .cancel {
+  display: none;
+}
 .navigation .input-tag ::placeholder {
   font-size: 15px;
 }
@@ -160,6 +162,8 @@ nav {
   outline: none;
   padding: 0 30px 0 10px;
   box-sizing: border-box;
+  font-size: 15px;
+  color: #5f6368;
 }
 .navigation .info {
   display: flex;
