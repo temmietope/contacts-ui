@@ -54,6 +54,7 @@ nav {
   height: 7vh;
   padding: 8px;
   -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
 .navigation {
   display: grid;
@@ -103,6 +104,7 @@ nav {
   display: inline-block;
   margin: 0 4px;
   padding: 12px;
+  padding-left: 0;
   overflow: hidden;
   vertical-align: middle;
   cursor: pointer;
@@ -167,8 +169,8 @@ nav {
   height: 100%;
   box-sizing: border-box;
   color: rgb(185, 186, 189);
-  padding: 0 10px;
-  box-sizing: border-box;
+  padding: 0 0 0 50px;
+  margin-right: 4px;
 }
 .navigation .info .settings {
   display: flex;
@@ -194,7 +196,7 @@ nav {
   height: 40px;
   z-index: 0;
   color: #5f6368;
-  font-size: 16px;
+  font-size: 18px;
 }
 .navigation .info .admin i {
   display: flex;
@@ -215,7 +217,7 @@ nav {
   height: 40px;
   z-index: 0;
   color: #5f6368;
-  font-size: 16px;
+  font-size: 18px;
 }
 .navigation .info .admin i:hover {
   background: #81848848;
