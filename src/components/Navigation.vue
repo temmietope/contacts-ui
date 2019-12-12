@@ -163,6 +163,8 @@ nav {
   outline: none;
   padding: 0 30px 0 10px;
   box-sizing: border-box;
+  font-size: 15px;
+  color: #5f6368;
 }
 .navigation .info {
   display: flex;
