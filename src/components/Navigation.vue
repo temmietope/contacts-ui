@@ -52,6 +52,7 @@ export default {
 nav {
   height: 7vh;
   padding: 0 8px;
+  margin-bottom: 8px;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
 }
