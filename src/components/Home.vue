@@ -1,16 +1,19 @@
 <template>
   <div class="home">
     <Navigation/>
+    <Contacts />
   </div>
 </template>
 
 <script>
 import Navigation from "./Navigation.vue";
+import Contacts from "./Contacts"
 
 export default {
   name: "Home",
   components: {
-    Navigation
+    Navigation,
+    Contacts
   },
   props: {
     msg: String
