@@ -1,5 +1,5 @@
 <template>
-  <table @click="handleClick()">
+  <table @click="handleSidebarToggle()">
     <thead>
       <tr v-if="checkedBoxes.length">
         <div class="checked_number">
@@ -109,9 +109,10 @@ export default {
         this.checkedBoxes = this.checkedBoxes.filter(id => id !== idx);
       }
     },
-    handleClick() {
+    handleSidebarToggle() {
+      const from = "table";
       if (window.innerWidth < 768) {
-        EventBus.$emit("nav-toggled", false);
+        EventBus.$emit("nav-toggled", from);
       }
     }
   }

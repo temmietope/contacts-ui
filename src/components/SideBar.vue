@@ -80,14 +80,28 @@ export default {
       }
     };
   },
+
   created() {
-    EventBus.$on("nav-toggled", ev => {
-      this.active = ev;
-    });
-    //     if (window.innerWidth < 768) {
-    //       this.active = false
-    //     }
-    //     return this.active
+    EventBus.$on("nav-toggled", this.handleToggle);
+
+    // hide sidebar on mount for small screens.
+    this.hideSidebarSm();
+  },
+
+  methods: {
+    handleToggle(from) {
+      if (from === "navigation") {
+        this.active = !this.active;
+      } else {
+        this.hideSidebarSm();
+      }
+    },
+
+    hideSidebarSm() {
+      if (window.innerWidth < 768) {
+        this.active = false;
+      }
+    }
   }
 };
 </script>
@@ -96,9 +110,11 @@ export default {
 aside {
   display: none;
   background: #ffffff;
-  height: 90vh;
+  overflow: auto;
   bottom: 0;
+  position: fixed;
 }
+
 aside.active {
   display: block;
   box-sizing: border-box;
@@ -115,10 +131,12 @@ aside nav {
   justify-content: center;
   align-items: flex-start;
   flex-flow: column;
-  width: 100%;
+  width: 20%;
   box-sizing: border-box;
   padding-top: 1rem;
+  position: fixed;
 }
+
 aside h2 {
   display: none;
 }
@@ -126,7 +144,7 @@ aside button {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: none;
+  border: 0.5px solid rgba(212, 208, 208, 0.623);
   box-sizing: border-box;
   width: 80%;
   height: 3.3rem;
@@ -134,6 +152,7 @@ aside button {
   border-radius: 100px 100px 100px 100px;
   padding-left: 1.2rem;
   margin-bottom: 3%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.24);
 }
 aside button i {
   background: linear-gradient(to right, yellow, red, green, blue);
@@ -192,16 +211,15 @@ aside ul li i {
     justify-content: center;
     align-items: flex-start;
     flex-flow: column;
-    width: 100%;
     box-sizing: border-box;
     padding-top: 1rem;
+    width: 70%;
   }
   aside.active {
-    width: 70%;
+    width: 75%;
     top: 0;
     z-index: 1;
     position: absolute;
-    height: 99vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
   }
   aside .aside-bar {
@@ -278,5 +296,10 @@ aside ul li i {
     margin-right: 10%;
     color: #5f6368;
   }
+}
+@media screen and (max-width: 380px) {
+    aside ul li {
+      font-size: 0.7rem
+    }
 }
 </style>

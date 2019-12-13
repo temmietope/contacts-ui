@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Navigation/>
+    <Navigation />
     <div class="home-body">
       <SideBar />
       <Contacts />
@@ -26,13 +26,13 @@ export default {
     SideBar
   },
   methods: {
-    handleToggle(ev) { 
-      this.active = ev
-    },
+    handleToggle(ev) {
+      this.active = ev;
+    }
   },
   computed: {
     getActive() {
-      return this.active
+      return this.active;
     }
   }
 };
@@ -51,7 +51,7 @@ export default {
 }
 @media screen and (max-width: 768px) {
   .home {
-    position: relative
+    position: relative;
   }
 }
 </style>

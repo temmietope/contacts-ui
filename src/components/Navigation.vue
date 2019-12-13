@@ -2,7 +2,7 @@
   <nav>
     <div class="navigation">
       <div class="brandname">
-        <span title="Main menu" @click="handleClick()">
+        <span title="Main menu" @click="handleSidebarToggle()">
           <i class="fas fa-bars bars" />
         </span>
         <span class="avatar">
@@ -13,7 +13,9 @@
       <div class="input-tag">
         <i class="fas fa-search search" title="Search"></i>
         <input type="text" v-model="searchItem" placeholder="Search" />
+        <span v-if="searchItem">
         <i class="fas fa-times cancel" title="Clear search"></i>
+        </span>
       </div>
       <div class="info">
         <span class="settings">
@@ -36,8 +38,8 @@ export default {
   name: "Navigation",
   data() {
     return {
-      searchItem: "",
-      active: true,
+      searchItem: null,
+      active: true
     };
   },
   watch: {
@@ -48,11 +50,11 @@ export default {
     }
   },
   methods: {
-    handleClick() {
-      this.active = !this.active;
-      EventBus.$emit("nav-toggled", this.active);
+    handleSidebarToggle() {
+      const from = "navigation";
+      EventBus.$emit("nav-toggled", from);
     }
-  },
+  }
 };
 </script>
 
@@ -166,7 +168,7 @@ nav {
   margin: 0px 5px;
 }
 .navigation .input-tag .cancel {
-  display: none;
+  /* display: none; */
 }
 .navigation .input-tag ::placeholder {
   font-size: 1rem;
