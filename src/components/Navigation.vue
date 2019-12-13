@@ -166,13 +166,9 @@ nav {
 .cancel i {
   margin: 0px 5px;
 }
-.navigation .input-tag .cancel {
-  /* display: none; */
-}
 .navigation .input-tag ::placeholder {
   font-size: 1rem;
 }
-
 .navigation .input-tag input {
   width: 100%;
   border: 1px solid transparent;

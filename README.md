@@ -22,8 +22,15 @@ Or you can view online on [https://contacts-ui.netlify.com/](https://contacts-ui
 
 ## Screenshots
 
+##### Desktop view
+
 ![](./screenshots/desktop-view.jpeg)
 
+##### Mobile view
+
+![](./screenshots/mobile-view.jpeg)
+
+![](./screenshots/mobile-view2.jpeg)
 
 ## Repository
 
