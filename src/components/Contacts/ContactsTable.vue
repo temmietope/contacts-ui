@@ -1,7 +1,19 @@
 <template>
   <table>
     <thead>
-      <tr>
+      <tr v-if="checkedBoxes.length">
+        <div class="checked_number">
+          <span class="checked-icons">
+            <i class="fas fa-minus-square"></i>
+            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-upload"></i>
+            <i class="fas fa-tag"></i>
+            <i class="fas fa-ellipsis-v" />
+          </span>
+          <span class="checked-span">{{checkedBoxes.length}} selected</span>
+        </div>
+      </tr>
+      <tr v-else>
         <th class="name">Name</th>
         <th class="email">Email</th>
         <th class="phone">Phone Number</th>
@@ -14,37 +26,32 @@
     <div class="desc">
       <span>CONTACTS ({{contacts.length}})</span>
     </div>
-
     <tbody>
       <tr
-        v-for="(contact, i) in contacts"
-        :key="contact.id"
+        v-for="({ name, id, phone, email, avatarBg }, i) in contacts"
+        :key="id"
         class="row-body"
         @mouseover="hoveredRow = i"
         @mouseleave="hoveredRow = null"
       >
         <td class="name">
           <div class="_name">
-            <span v-if="hoveredRow === i" class="side_check">
+            <span v-if="hoveredRow === i || isChecked(id)" class="side_check">
               <i class="fas fa-grip-vertical sideicon" />
               <span class="checkbox">
-                <input type="checkbox"/>
-                <!-- <input type="checkbox" :checked="isChecked(contact.id)" @click="toggleCheckbox(i)" /> -->
-                <!-- <span class="checkmark"></span> -->
+                <input type="checkbox" :checked="isChecked(id)" @click="toggleCheckbox(id)" />
               </span>
             </span>
             <span v-else>
-              <div class="circle" :style="{backgroundColor: getRandomColor}">
-                <span class="initials">{{getInitials(contact.name)}}</span>
+              <div class="circle" :style="{backgroundColor: avatarBg}">
+                <span class="initials">{{getInitials(name)}}</span>
               </div>
             </span>
-            <span
-              class="fullname"
-            >{{contact.name.title}} {{contact.name.first}} {{contact.name.last}}</span>
+            <span class="fullname">{{name.title}} {{name.first}} {{name.last}}</span>
           </div>
         </td>
-        <td class="email">{{contact.email}}</td>
-        <td class="phone">{{contact.phone}}</td>
+        <td class="email">{{email}}</td>
+        <td class="phone">{{phone}}</td>
         <td class="more">
           <span v-if="hoveredRow === i">
             <div class="_more">
@@ -61,47 +68,51 @@
 </template>
 
 <script>
-import contacts from "./contacts.json";
+// import contacts from "./contacts.json";
+import data from "./contacts.json";
 import colors from "./colors.js";
 export default {
   name: "ContactsTable",
   data() {
+    const contacts = data.map(contact => ({
+      ...contact,
+      avatarBg: this.getColor()
+    }));
     return {
       contacts,
       hoveredRow: null,
       checkedBoxes: []
     };
   },
-  computed: {
-    getRandomColor() {
+  methods: {
+    getInitials({ first, last }) {
+      return `${first[0]} ${last[0]}`;
+    },
+    getColor() {
       const rand = Math.ceil(Math.random() * colors.length - 1);
       return colors[rand];
     },
     isChecked(id) {
       return this.checkedBoxes.includes(id);
-    }
-  },
-  methods: {
-    getInitials({ first, last }) {
-      return `${first[0]} ${last[0]}`;
+    },
+
+    toggleCheckbox(idx) {
+      if (!this.checkedBoxes.includes(idx)) {
+        this.checkedBoxes.push(idx);
+      } else {
+        this.checkedBoxes = this.checkedBoxes.filter(id => id !== idx);
+      }
     }
   }
 };
 </script>
 
 <style scoped>
-:root {
-  --avatar-size: 4rem;
-}
-
 .circle {
-  /* background-color: #ccc; */
   border-radius: 50%;
   height: 2.5rem;
   width: 2.5rem;
-  /* height: var(--avatar-size); */
   text-align: center;
-  /* width: var(--avatar-size); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,7 +128,29 @@ export default {
   top: calc(var(--avatar-size) / 4); /* 25% of parent */
   color: white;
 }
-
+.checked_number {
+  width: 100%;
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+  box-sizing: border-box;
+  color: rgb(26, 114, 232);
+}
+.checked_number .checked-icons {
+  width: 50%;
+  text-align: left;
+}
+.checked_number i {
+  margin-right: 4%;
+  font-size: 1rem;
+}
+.checked_number .checked-span {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: right;
+}
 .contacts-wrapper table {
   width: 98%;
   table-layout: fixed;
@@ -134,8 +167,12 @@ export default {
 }
 .contacts-wrapper table ._name .sideicon {
   margin-right: 10%;
-  color: #5f6368;
+  color: #5f636873;
   align-self: center;
+  display: none;
+}
+.contacts-wrapper table tr.row-body:hover .sideicon {
+  display: block;
 }
 .side_check {
   display: flex;
@@ -144,57 +181,6 @@ export default {
 input[type="checkbox"] {
   transform: scale(1.5);
 }
-/* .checkbox {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-.checkbox input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-.checkbox .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-}
-.checkbox:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-.checkbox input:checked ~ .checkmark {
-    background-color: #2196F3;
-}
-.checkbox .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-.checkbox input:checked ~ .checkmark:after {
-    display: block;
-}
-.checkbox .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-} */
-
 .contacts-wrapper table .email {
   width: 30%;
 }
@@ -207,7 +193,6 @@ input[type="checkbox"] {
 .contacts-wrapper table,
 td,
 th {
-  /* border-collapse: collapse; */
   border: none;
 }
 
@@ -219,9 +204,6 @@ td {
   color: #5f6368;
   background: white;
   width: 100%;
-  /* z-index: 1;
-  position: fixed;
-  top: 7vh; */
 }
 .contacts-wrapper tbody tr {
   cursor: pointer;
@@ -266,4 +248,42 @@ hr {
   padding-left: 0.7rem;
   margin-top: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  .circle {
+    margin-right: 2px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .checked_number i {
+    margin-right: 10%;
+    font-size: 1.2rem;
+  }
+  .checked_number .checked-span {
+    font-size: 1.2rem;
+  }
+  .contacts-wrapper table .name {
+    text-align: left;
+    width: 100%;
+  }
+  .contacts-wrapper table ._name {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+  }
+  .side_check {
+    display: flex;
+    margin-left: 0;
+  }
+  .contacts-wrapper table .email,
+  .phone,
+  .more {
+    display: none;
+  }
+}
 </style>
+
+
+//325921458
+
+//08123200371

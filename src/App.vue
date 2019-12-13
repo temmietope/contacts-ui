@@ -11,6 +11,9 @@ export default {
   name: "app",
   components: {
     Home
+  },
+  mounted() {
+    console.log(window.innerWidth)
   }
 };
 </script>

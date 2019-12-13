@@ -21,7 +21,7 @@
           <i class="fas fa-cog" title="Settings menu"></i>
         </span>
         <span class="admin">
-          <i class="fas fa-grip-horizontal" title="Google apps"></i>
+          <i class="fas fa-grip-horizontal apps" title="Google apps"></i>
           <p>T</p>
         </span>
       </div>
@@ -34,27 +34,54 @@ export default {
   name: "Navigation",
   data() {
     return {
-      searchItem: "",
-      active: true
+      searchItem: ""
+      // active: active
     };
   },
   watch: {
     searchItem(searched) {
-      // console.log(searched);
       setTimeout(() => {
         this.$emit("searchItem", searched);
       }, 3000);
     }
   },
+  computed: {
+    // active: ()=> {
+    //   if (window.innerWidth < 768) {
+    //     return false;
+    //   }else{
+    //     return true
+    //   }
+
+    // }
+    active: {
+      get: function() {
+        if (window.innerWidth < 768) {
+          return false;
+        }
+        return true
+      },
+      set: function(newValue) {
+        return newValue
+      }
+    }
+  },
   methods: {
     handleClick() {
-      this.active = !this.active;
+      console.log("i clecked")
+      this.changeActiveValue()
+      // this.active = !this.active;
+      console.log(this.active)
       this.$emit("nav-toggled", this.active);
+
     },
-    toggleSideBar() {
-      this.showNav = !this.showNav;
-      this.$emit("showNav", this.showNav);
+    changeActiveValue(){
+      this.active = !this.active;
     }
+
+  },
+  mounted() {
+    console.log(window.innerWidth);
   }
 };
 </script>
@@ -63,7 +90,6 @@ export default {
 nav {
   height: 9vh;
   padding: 0.5% 1%;
-  /* margin-bottom: 2vh; */
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
   background: white;
@@ -159,7 +185,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70%;
+  height: 100%;
   border-radius: 50%;
   padding: 2%;
   box-sizing: border-box;
@@ -265,5 +291,74 @@ nav {
   background: rgb(0, 136, 209);
   color: white;
   border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    height: 7vh;
+    padding: 1%;
+  }
+  .navigation {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .navigation .brandname {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    margin-right: auto;
+    padding: 0;
+  }
+  .navigation .brandname h2 {
+    top: 0;
+  }
+  .navigation .brandname .avatar {
+    display: none;
+  }
+  .navigation .brandname .bars {
+    margin: 0;
+    width: 2rem;
+    height: 2rem;
+  }
+  .navigation .input-tag {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 10%;
+    background: white;
+  }
+  .navigation .input-tag .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0%;
+    width: 100%;
+    height: 2rem;
+    box-sizing: border-box;
+    color: #5f6368;
+  }
+  .navigation .input-tag .cancel {
+    display: none;
+  }
+  .navigation .input-tag input {
+    display: none;
+  }
+  .navigation .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+    padding: 0;
+  }
+  .navigation .info .admin i {
+    display: none;
+  }
 }
 </style>

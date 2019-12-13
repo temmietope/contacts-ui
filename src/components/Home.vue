@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     handleToggle(ev) {
-      console.log(ev)
       this.active = ev
     },
   },
@@ -49,5 +48,10 @@ export default {
 }
 .home-body {
   display: flex;
+}
+@media screen and (max-width: 768px) {
+  .home {
+    position: relative
+  }
 }
 </style>
