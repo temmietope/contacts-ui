@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <Navigation @nav-toggled="active = !active" />
+    <Navigation @nav-toggled="handleToggle" />
     <div class="home-body">
-      <SideBar :activeNav="active" />
+      <SideBar :activeNav="getActive"/>
       <Contacts />
     </div>
   </div>
@@ -26,12 +26,16 @@ export default {
     SideBar
   },
   methods: {
-    showNav(show) {
-      this.toggleNav = show;
-      // console.log(this.toggleNav);
-    }
+    handleToggle(ev) {
+      console.log(ev)
+      this.active = ev
+    },
   },
-  mounted() {}
+  computed: {
+    getActive(){
+      return this.active
+    }
+  }
 };
 </script>
 
@@ -42,7 +46,6 @@ export default {
   display: flex;
   align-items: stretch;
   flex-direction: column;
-  /* width 100vw */
 }
 .home-body {
   display: flex;

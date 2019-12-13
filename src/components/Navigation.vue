@@ -62,7 +62,7 @@ export default {
 <style scoped>
 nav {
   height: 9vh;
-  padding: 5px 8px;
+  padding: 0.5% 1%;
   /* margin-bottom: 2vh; */
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
@@ -84,20 +84,20 @@ nav {
   align-items: center;
   width: 100%;
   height: 100%;
-  padding-right: 30px;
+  padding-right: 5%;
   box-sizing: border-box;
 }
 .navigation .brandname h2 {
   margin: 0;
   padding: 0;
-  font-size: 22px;
+  font-size: 1.2rem;
   font-weight: 200;
   line-height: 24px;
   color: #5f6368;
   opacity: 1;
   font-family: "Product Sans", Arial, sans-serif;
   display: inline-block;
-  padding-left: 8px;
+  padding-left: 2%;
   position: relative;
   top: -1.5px;
   vertical-align: middle;
@@ -105,14 +105,14 @@ nav {
 .navigation .brandname .avatar {
   background: rgb(26, 114, 232);
   color: rgb(255, 255, 255);
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  margin-bottom: 4px;
-  margin-right: 4px;
+  margin-bottom: 1%;
+  margin-right: 1%;
 }
 .navigation .brandname .bars {
   color: #5f6368;
@@ -124,8 +124,8 @@ nav {
   overflow: hidden;
   vertical-align: middle;
   cursor: pointer;
-  height: 24px;
-  width: 24px;
+  height: 1.25rem;
+  width: 1.25rem;
   -webkit-user-select: none;
   -webkit-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -157,7 +157,7 @@ nav {
   align-items: center;
   height: 70%;
   border-radius: 50%;
-  padding: 10px;
+  padding: 2%;
   box-sizing: border-box;
   color: #5f6368;
 }
@@ -169,7 +169,7 @@ nav {
   display: none;
 }
 .navigation .input-tag ::placeholder {
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 .navigation .input-tag input {
@@ -179,7 +179,7 @@ nav {
   outline: none;
   padding: 0 30px 0 10px;
   box-sizing: border-box;
-  font-size: 15px;
+  font-size: 1rem;
   color: #5f6368;
 }
 .navigation .info {
@@ -191,7 +191,7 @@ nav {
   box-sizing: border-box;
   color: rgb(185, 186, 189);
   padding: 0 0 0 50px;
-  margin-right: 4px;
+  margin-right: 1%;
 }
 .navigation .info .settings {
   display: flex;
@@ -239,6 +239,7 @@ nav {
   z-index: 0;
   color: #5f6368;
   font-size: 18px;
+  margin-right: 10px;
 }
 .navigation .info .admin i:hover {
   background: #81848848;

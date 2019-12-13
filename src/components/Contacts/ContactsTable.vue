@@ -10,6 +10,7 @@
         </th>
       </tr>
     </thead>
+    <hr />
     <div class="desc">
       <span>CONTACTS ({{contacts.length}})</span>
     </div>
@@ -71,8 +72,8 @@ export default {
 .circle {
   /* background-color: #ccc; */
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 2.5rem;
+  width: 2.5rem;
   /* height: var(--avatar-size); */
   text-align: center;
   /* width: var(--avatar-size); */
@@ -108,7 +109,7 @@ export default {
   box-sizing: border-box;
 }
 .contacts-wrapper table ._name .sideicon {
-  padding-right: 5px;
+  padding-right: 2%;
   display: none;
   color: #5f6368;
 }
@@ -140,6 +141,10 @@ td {
   position: fixed;
   top: 7vh; */
 }
+hr {
+  color: #61616186;
+  margin: 0;
+}
 .contacts-wrapper thead .more {
   text-align: right;
 }
@@ -149,11 +154,11 @@ td {
   display: none;
 }
 .contacts-wrapper tbody .more ._more i {
-  margin-left: 30px;
+  margin-left: 1.3rem;
   color: #5f6368;
 }
 .contacts-wrapper table tr {
-  height: 56px;
+  height: 3.5rem;
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -170,7 +175,7 @@ td {
   display: block;
 }
 .desc {
-  font-size: 10px;
+  font-size: 0.7rem;
   width: 100%;
   height: 4vh;
   left: 0;
@@ -179,6 +184,7 @@ td {
   align-items: center;
   color: #5f6368;
   font-weight: bold;
-  padding-left: 10px;
+  padding-left: 0.7rem;
+  margin-top: 1rem;
 }
 </style>
