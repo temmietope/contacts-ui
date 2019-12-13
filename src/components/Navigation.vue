@@ -89,7 +89,6 @@ nav {
   margin: 0;
   padding: 0;
   font-size: 1.2rem;
-  font-weight: 200;
   line-height: 24px;
   color: #5f6368;
   opacity: 1;
