@@ -138,9 +138,11 @@ aside ul li {
   padding-left: 1.2rem;
   border-radius: 0px 100px 100px 0px;
   height: 2.6rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  font-weight: 500;
+  line-height: 1.25rem;
   color: #202124;
   cursor: pointer;
 }

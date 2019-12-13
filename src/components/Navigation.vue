@@ -117,18 +117,22 @@ nav {
 .navigation .brandname .bars {
   color: #5f6368;
   border-radius: 50%;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 4px;
-  padding: 12px;
   padding-left: 0;
   overflow: hidden;
-  vertical-align: middle;
   cursor: pointer;
-  height: 1.25rem;
-  width: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   -webkit-user-select: none;
   -webkit-flex: 0 0 auto;
   flex: 0 0 auto;
+}
+.navigation .brandname .bars:hover {
+  background: #81848848;
+  opacity: 1;
 }
 .navigation .input-tag {
   display: grid;
