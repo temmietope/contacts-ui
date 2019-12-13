@@ -28,7 +28,8 @@
             <span v-if="hoveredRow === i" class="side_check">
               <i class="fas fa-grip-vertical sideicon" />
               <span class="checkbox">
-                <input type="checkbox" :checked="isChecked(contact.id)" @click="toggleCheckbox(i)" />
+                <input type="checkbox"/>
+                <!-- <input type="checkbox" :checked="isChecked(contact.id)" @click="toggleCheckbox(i)" /> -->
                 <!-- <span class="checkmark"></span> -->
               </span>
             </span>
