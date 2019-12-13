@@ -68,7 +68,6 @@
 </template>
 
 <script>
-// import contacts from "./contacts.json";
 import data from "./contacts.json";
 import colors from "./colors.js";
 
@@ -109,6 +108,7 @@ export default {
         this.checkedBoxes = this.checkedBoxes.filter(id => id !== idx);
       }
     },
+    
     handleSidebarToggle() {
       const from = "table";
       if (window.innerWidth < 768) {
