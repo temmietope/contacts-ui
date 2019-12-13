@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table @click="handleClick()">
     <thead>
       <tr v-if="checkedBoxes.length">
         <div class="checked_number">
@@ -10,7 +10,7 @@
             <i class="fas fa-tag"></i>
             <i class="fas fa-ellipsis-v" />
           </span>
-          <span class="checked-span">{{checkedBoxes.length}} selected</span>
+          <span class="checked-span">{{ checkedBoxes.length }} selected</span>
         </div>
       </tr>
       <tr v-else>
@@ -24,7 +24,7 @@
     </thead>
     <hr />
     <div class="desc">
-      <span>CONTACTS ({{contacts.length}})</span>
+      <span>CONTACTS ({{ contacts.length }})</span>
     </div>
     <tbody>
       <tr
@@ -43,15 +43,15 @@
               </span>
             </span>
             <span v-else>
-              <div class="circle" :style="{backgroundColor: avatarBg}">
-                <span class="initials">{{getInitials(name)}}</span>
+              <div class="circle" :style="{ backgroundColor: avatarBg }">
+                <span class="initials">{{ getInitials(name) }}</span>
               </div>
             </span>
-            <span class="fullname">{{name.title}} {{name.first}} {{name.last}}</span>
+            <span class="fullname">{{ name.title }} {{ name.first }} {{ name.last }}</span>
           </div>
         </td>
-        <td class="email">{{email}}</td>
-        <td class="phone">{{phone}}</td>
+        <td class="email">{{ email }}</td>
+        <td class="phone">{{ phone }}</td>
         <td class="more">
           <span v-if="hoveredRow === i">
             <div class="_more">
@@ -71,6 +71,9 @@
 // import contacts from "./contacts.json";
 import data from "./contacts.json";
 import colors from "./colors.js";
+
+import EventBus from "../../EventBus";
+
 export default {
   name: "ContactsTable",
   data() {
@@ -84,14 +87,17 @@ export default {
       checkedBoxes: []
     };
   },
+
   methods: {
     getInitials({ first, last }) {
       return `${first[0]} ${last[0]}`;
     },
+
     getColor() {
       const rand = Math.ceil(Math.random() * colors.length - 1);
       return colors[rand];
     },
+
     isChecked(id) {
       return this.checkedBoxes.includes(id);
     },
@@ -101,6 +107,11 @@ export default {
         this.checkedBoxes.push(idx);
       } else {
         this.checkedBoxes = this.checkedBoxes.filter(id => id !== idx);
+      }
+    },
+    handleClick() {
+      if (window.innerWidth < 768) {
+        EventBus.$emit("nav-toggled", false);
       }
     }
   }
@@ -254,12 +265,15 @@ hr {
     font-size: 15px;
     font-weight: bold;
   }
+  .checked_number {
+    height: 2rem;
+  }
   .checked_number i {
     margin-right: 10%;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
   .checked_number .checked-span {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
   .contacts-wrapper table .name {
     text-align: left;

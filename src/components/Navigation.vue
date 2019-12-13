@@ -2,7 +2,7 @@
   <nav>
     <div class="navigation">
       <div class="brandname">
-        <span title="Main menu" @click="handleClick">
+        <span title="Main menu" @click="handleClick()">
           <i class="fas fa-bars bars" />
         </span>
         <span class="avatar">
@@ -30,17 +30,18 @@
 </template>
 
 <script>
+import EventBus from "../EventBus";
+
 export default {
   name: "Navigation",
   data() {
     return {
       searchItem: "",
-      active: true
+      active: true,
     };
   },
   watch: {
     searchItem(searched) {
-      // console.log(searched);
       setTimeout(() => {
         this.$emit("searchItem", searched);
       }, 3000);
@@ -49,9 +50,9 @@ export default {
   methods: {
     handleClick() {
       this.active = !this.active;
-      this.$emit("nav-toggled", this.active);
+      EventBus.$emit("nav-toggled", this.active);
     }
-  }
+  },
 };
 </script>
 

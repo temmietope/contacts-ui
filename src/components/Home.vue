@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <Navigation @nav-toggled="handleToggle" />
+    <Navigation/>
     <div class="home-body">
-      <SideBar :activeNav="getActive"/>
-      <Contacts :closeNav="getActive"/>
+      <SideBar />
+      <Contacts />
     </div>
   </div>
 </template>
@@ -26,12 +26,12 @@ export default {
     SideBar
   },
   methods: {
-    handleToggle(ev) {
+    handleToggle(ev) { 
       this.active = ev
     },
   },
   computed: {
-    getActive(){
+    getActive() {
       return this.active
     }
   }

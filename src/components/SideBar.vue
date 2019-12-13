@@ -1,5 +1,5 @@
 <template>
-  <aside :class="{ active: activeNav}">
+  <aside :class="{ active: active}">
     <nav>
       <div class="aside-bar">
         <i class="fas fa-grip-vertical" />
@@ -68,19 +68,26 @@
 </template>
 
 <script>
+import EventBus from "../EventBus";
+
 export default {
   name: "SideBar",
-  props: {
-    activeNav: {
-      type: Boolean,
-      active: true
-    }
+  data() {
+    return {
+      active: {
+        type: Boolean,
+        default: true
+      }
+    };
   },
-  mounted() {
-    if (window.innerWidth < 768) {
-      this.activeNav = false;
-    }
-    return this.activeNav;
+  created() {
+    EventBus.$on("nav-toggled", ev => {
+      this.active = ev;
+    });
+    //     if (window.innerWidth < 768) {
+    //       this.active = false
+    //     }
+    //     return this.active
   }
 };
 </script>
@@ -127,9 +134,6 @@ aside button {
   border-radius: 100px 100px 100px 100px;
   padding-left: 1.2rem;
   margin-bottom: 3%;
-  color: #4c4f52;
-  border: 1px solid #7b808659;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
 }
 aside button i {
   background: linear-gradient(to right, yellow, red, green, blue);
@@ -141,7 +145,7 @@ aside button i {
 }
 aside button span {
   font-size: 0.875rem;
-  font-weight: bold;
+  font-weight: 500;
   letter-spacing: 0.0107142857em;
 }
 .btn {
@@ -163,19 +167,13 @@ aside ul li {
   padding-left: 1.2rem;
   border-radius: 0px 100px 100px 0px;
   height: 2.6rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   display: flex;
   align-items: center;
+  line-height: 1.25rem;
+  color: #202124;
   cursor: pointer;
-}
-aside ul li span {
-  color: rgb(31, 32, 36);
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.3em;
-}
-aside ul li i {
-  color: rgb(126, 126, 126);
-  margin-right: 10%;
 }
 aside ul li:hover {
   color: #2962ff;
@@ -183,6 +181,10 @@ aside ul li:hover {
 }
 aside ul li:hover i {
   color: #2962ff;
+}
+aside ul li i {
+  margin-right: 10%;
+  color: #5f6368;
 }
 @media screen and (max-width: 768px) {
   aside nav {
@@ -200,6 +202,7 @@ aside ul li:hover i {
     z-index: 1;
     position: absolute;
     height: 99vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
   }
   aside .aside-bar {
     display: flex;
@@ -221,6 +224,7 @@ aside ul li:hover i {
     padding-left: 1.2rem;
     margin-bottom: 0%;
     margin-right: 10%;
+    font-size: 1.3rem;
   }
   aside h2 span {
     background: linear-gradient(to right, yellow, red, green, blue);
