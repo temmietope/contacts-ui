@@ -122,10 +122,8 @@ export default {
 }
 
 .initials {
-  font-size: calc(var(--avatar-size) / 2); /* 50% of parent */
   line-height: 1;
   position: relative;
-  top: calc(var(--avatar-size) / 4); /* 25% of parent */
   color: white;
 }
 .checked_number {
@@ -155,6 +153,7 @@ export default {
   width: 98%;
   table-layout: fixed;
   position: relative;
+  font-size: 0.9rem;
 }
 .contacts-wrapper table .name {
   width: 40%;
@@ -236,7 +235,7 @@ hr {
   background: #f1f3f4;
 }
 .desc {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   width: 100%;
   height: 4vh;
   left: 0;
@@ -282,8 +281,3 @@ hr {
   }
 }
 </style>
-
-
-//325921458
-
-//08123200371

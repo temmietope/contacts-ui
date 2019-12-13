@@ -3,7 +3,7 @@
     <Navigation @nav-toggled="handleToggle" />
     <div class="home-body">
       <SideBar :activeNav="getActive"/>
-      <Contacts />
+      <Contacts :closeNav="getActive"/>
     </div>
   </div>
 </template>

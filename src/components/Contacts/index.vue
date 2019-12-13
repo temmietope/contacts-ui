@@ -10,6 +10,17 @@ export default {
   name: "Contacts",
   components: {
     ContactsTable
+  },
+  props: {
+    activeNav: {
+      type: Boolean,
+      active: true
+    }
+  },
+  methods: {
+    closeSideBar() {
+      this.active = false;
+    }
   }
 };
 </script>
@@ -21,6 +32,6 @@ export default {
   justify-content: center;
   align-items: center;
   position: relative;
-   flex-grow: 2
+  flex-grow: 2;
 }
 </style>

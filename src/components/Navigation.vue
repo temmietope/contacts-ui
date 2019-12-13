@@ -34,54 +34,23 @@ export default {
   name: "Navigation",
   data() {
     return {
-      searchItem: ""
-      // active: active
+      searchItem: "",
+      active: true
     };
   },
   watch: {
     searchItem(searched) {
+      // console.log(searched);
       setTimeout(() => {
         this.$emit("searchItem", searched);
       }, 3000);
     }
   },
-  computed: {
-    // active: ()=> {
-    //   if (window.innerWidth < 768) {
-    //     return false;
-    //   }else{
-    //     return true
-    //   }
-
-    // }
-    active: {
-      get: function() {
-        if (window.innerWidth < 768) {
-          return false;
-        }
-        return true
-      },
-      set: function(newValue) {
-        return newValue
-      }
-    }
-  },
   methods: {
     handleClick() {
-      console.log("i clecked")
-      this.changeActiveValue()
-      // this.active = !this.active;
-      console.log(this.active)
-      this.$emit("nav-toggled", this.active);
-
-    },
-    changeActiveValue(){
       this.active = !this.active;
+      this.$emit("nav-toggled", this.active);
     }
-
-  },
-  mounted() {
-    console.log(window.innerWidth);
   }
 };
 </script>
